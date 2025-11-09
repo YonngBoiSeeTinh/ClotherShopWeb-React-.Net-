@@ -1,0 +1,152 @@
+﻿create database DBShop;
+GO
+use DBShop;
+GO
+
+CREATE TABLE Accounts (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    created_at DATETIME DEFAULT GETDATE(),
+    email NVARCHAR(255) UNIQUE,
+    password NVARCHAR(255),
+    updated_at DATETIME DEFAULT GETDATE(),
+    user_id INT
+);
+
+CREATE TABLE Carts (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    created_at DATETIME DEFAULT GETDATE(),
+    price DECIMAL(18, 2),
+    color_size_id INT,
+    product_id INT,
+    quantity INT,
+    updated_at DATETIME DEFAULT GETDATE(),
+    user_id INT
+);
+
+CREATE TABLE Categories (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    created_at DATETIME DEFAULT GETDATE(),
+    description NVARCHAR(MAX),
+    image VARBINARY(MAX),
+
+    name NVARCHAR(255),
+    updated_at DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE ColorSizes (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    color NVARCHAR(50),
+    code NVARCHAR(50),
+    price DECIMAL(18, 2),
+    created_at DATETIME DEFAULT GETDATE(),
+    product_id INT,
+    quantity INT,
+    size NVARCHAR(10),
+    updated_at DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Orders (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    address NVARCHAR(255),
+    note NVARCHAR(MAX),
+    name NVARCHAR(255),
+    paymentMethod NVARCHAR(70),
+    paymentStatus NVARCHAR(70),
+    cancellationReason NVARCHAR(255),
+    created_at DATETIME DEFAULT GETDATE(),
+    phone NVARCHAR(15),
+    status NVARCHAR(50) DEFAULT 'Chưa xác nhận',
+    total_price DECIMAL(18, 2),
+    updated_at DATETIME DEFAULT GETDATE(),
+    user_id INT
+);
+
+CREATE TABLE OrderDetails (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    color_size_id INT,
+    created_at DATETIME DEFAULT GETDATE(),
+    order_id INT,
+    price DECIMAL(18, 2),
+    product_id INT,
+    quantity INT,
+    updated_at DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Products (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    category_id INT,
+    created_at DATETIME DEFAULT GETDATE(),
+    description NVARCHAR(MAX),
+    image VARBINARY(MAX),
+    name NVARCHAR(50),
+    brand NVARCHAR(50),
+    price DECIMAL(18, 2),
+    promo int default 0,
+    rate INT DEFAULT 0,
+    stars_rate INT DEFAULT 0,
+    sold INT DEFAULT 0,
+    banner int default 0,
+    unit NVARCHAR(50),
+    updated_at DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Comments (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    product_id INT,
+    user_id INT,
+    name NVARCHAR(255),
+    stars FLOAT,
+    content NVARCHAR(250),
+    created_at DATETIME DEFAULT GETDATE(),
+    updated_at DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Promotions (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    start_at DATETIME DEFAULT GETDATE(),
+    created_at DATETIME DEFAULT GETDATE(),
+    end_at DATETIME,
+    name NVARCHAR(255),
+    code NVARCHAR(20),
+    updated_at DATETIME DEFAULT GETDATE(),
+    value DECIMAL(18, 2),
+    min_price DECIMAL(18, 2),
+    max_value DECIMAL(18, 2)
+);
+
+CREATE TABLE Roles (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    created_at DATETIME DEFAULT GETDATE(),
+    name NVARCHAR(255),
+    promo int default 0,
+    updated_at DATETIME DEFAULT GETDATE()
+);
+CREATE TABLE Users (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    account INT DEFAULT 0,
+    address NVARCHAR(255),
+    created_at DATETIME DEFAULT GETDATE(),
+    image VARBINARY(MAX),
+
+    name NVARCHAR(255),
+    phone NVARCHAR(15),
+    role INT,
+    total_buy DECIMAL(18, 2) DEFAULT 0,
+    updated_at DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Posts (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    [type] NVARCHAR(50),
+    [image] VARBINARY(MAX),
+    [question] NVARCHAR(MAX),
+    [content] NVARCHAR(MAX),
+    [author] NVARCHAR(50),
+    title NVARCHAR(100),
+    created_at DATETIME DEFAULT GETDATE(),
+    updated_at DATETIME DEFAULT GETDATE()
+);
+GO
+
+
+
