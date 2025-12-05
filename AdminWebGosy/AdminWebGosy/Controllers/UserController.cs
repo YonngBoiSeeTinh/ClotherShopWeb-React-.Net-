@@ -35,6 +35,7 @@ namespace AdminWebGosy.Controllers
                     var lstUser = new  List<User>();
                     foreach (User u in users)
                     {
+                        Console.WriteLine(u.Name);
                         if(u.Role != 2) // bỏ admin
                         {
                             lstUser.Add(u);
