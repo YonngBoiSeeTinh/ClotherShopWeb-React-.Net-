@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+*.pdb
+
+# Build outputs
+bin/
+obj/
+
+# Node.js / Next.js
+node_modules/
+.next/
+out/
+.env
