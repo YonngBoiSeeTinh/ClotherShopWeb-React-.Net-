@@ -18,7 +18,7 @@ const BestSeller = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get(`/api/Products`);
+                const response = await axios.get(`${API_URL}/api/Products`);
                 setProducts(response.data);
             } catch (error) {
                 console.error("Lỗi khi tải sản phẩm:", error);

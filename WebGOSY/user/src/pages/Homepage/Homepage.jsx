@@ -55,7 +55,7 @@ const Homepage = () => {
         useEffect(() => {
             const fetchPosts = async () => {
                 try {
-                    const response = await axios.get(`/api/Posts`);
+                    const response = await axios.get(`${API_URL}/api/Posts`);
                     setPosts(response.data);
                 } catch (error) {
                     console.error("Lỗi khi tải posts:", error);

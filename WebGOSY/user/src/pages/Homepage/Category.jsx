@@ -14,7 +14,7 @@ const Featured = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get(`/api/Categories`);
+                const response = await axios.get(`${API_URL}/api/Categories`);
                 setCategories(response.data);
             } catch (error) {
                 console.error("Lỗi khi tải sản phẩm:", error);

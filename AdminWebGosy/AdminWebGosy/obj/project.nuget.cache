@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZybCrxnANs8=",
+  "dgSpecHash": "7/jmCe5PHzA=",
   "success": true,
-  "projectFilePath": "D:\\GOSY_ECOMER-Web\\AdminWebGosy\\AdminWebGosy\\AdminWebGosy.csproj",
+  "projectFilePath": "D:\\ClotherShopWeb\\AdminWebGosy\\AdminWebGosy\\AdminWebGosy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nguye\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\nguye\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
